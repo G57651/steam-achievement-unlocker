@@ -1,0 +1,10 @@
+# 下载产物与本地构建产物（fetch_sdk.py 下载，不入库；见 DEVELOPMENT_LOG.md §5）
+sdk/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+gui_error.log
+
+# 安全扫描插件（mimosa）写入的项目内会话状态目录（插件自动生成，非项目内容）
+.mimosa/
