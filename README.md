@@ -1,5 +1,9 @@
 # sau — Steam Achievement Unlocker
 
+![Windows](https://img.shields.io/badge/Windows-10%2B-0078D6?logo=windows&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Steam 成就解锁工具（命令行）。**仅提供"解锁成就"功能**，通过 Steamworks flat C API
 与正在运行的 Steam 客户端通信，把成就解锁同步到 Steam 服务器（效果与 SAM /
 SamRewritten 一致，以 Python + ctypes 实现）。
@@ -44,9 +48,9 @@ python scripts/fetch_sdk.py        # 从 Steamworks.NET 仓库下载并 sha256 �
 
 ### 方式一：单文件 exe（v0.4.2+，免 Python 环境）
 
-`release/sau_gui/` 目录：双击 `sau_gui.exe` 即可（保持它与 `sdk\` 文件夹在同一
-相对位置；同机使用时缓存已就绪）。exe 同时支持完整命令行（详见下方），
-启动失败看同目录 `sau_crash.log`。
+从 [Releases](https://github.com/G57651/steam-achievement-unlocker/releases) 下载 `sau_gui.exe`：
+双击即可（保持它与 `sdk\` 文件夹在同一相对位置；同机使用时缓存已就绪）。exe 同时支持
+完整命令行（详见下方），启动失败看同目录 `sau_crash.log`。
 
 ### 方式二：源码运行
 
@@ -113,7 +117,7 @@ python -m sau gui      # 或直接双击 run_gui.bat（GBK+CRLF 编码，兼容 
 ## 测试
 
 ```bash
-python -m unittest discover -s tests -t . -v   # 55 个用例，无需 Steam
+python -m unittest discover -s tests -t . -v   # 全部用例，无需 Steam
 ```
 
 不依赖 Steam：业务层通过 `bindings_factory` 注入模拟客户端；PE 解析用系统
@@ -123,7 +127,7 @@ python -m unittest discover -s tests -t . -v   # 55 个用例，无需 Steam
 
 ```
 sau/            核心库：steamapi(ctypes 绑定) peinfo(PE 导出表) service(业务) library(游戏库) cli presenter gui
-tests/          单元测试 + 模拟 Steam 客户端（101 用例）
+tests/          单元测试 + 模拟 Steam 客户端
 scripts/        fetch_sdk.py（下载 DLL）、steam_selftest.py（真机自检）
 docs/gui.png    界面截图
 run_gui.bat     GUI 双击启动脚本
